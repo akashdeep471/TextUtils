@@ -1,25 +1,30 @@
-import React, { useState } from "react";
+import React from "react";
 
-export default function About() {
-  const [mode, setMode] = useState({
-    color: "black",
-    backgroundColor: "white",
-  });
+export default function About(props) {
+  // const [mode, setMode] = useState({
+  //   color: "black",
+  //   backgroundColor: "white",
+  // });
 
-  const [btnText, setBtnText] = useState("Enable Dark Mode");
+  // const [btnText, setBtnText] = useState("Enable Dark Mode");
 
-  const toggleMode = () => {
-    if (mode.color === "black") {
-      setMode({ color: "white", backgroundColor: "black" });
-      setBtnText("Enable Light Mode");
-    } else {
-      setMode({ color: "black", backgroundColor: "white" });
-      setBtnText("Enable Dark Mode");
-    }
+  // const toggleMode = () => {
+  //   if (mode.color === "black") {
+  //     setMode({ color: "white", backgroundColor: "black" });
+  //     setBtnText("Enable Light Mode");
+  //   } else {
+  //     setMode({ color: "black", backgroundColor: "white" });
+  //     setBtnText("Enable Dark Mode");
+  //   }
+  // };
+
+  let myStyle = {
+    color:props.theme==='dark'?'white':'black',
+    backgroundColor:props.theme==='dark'?'#1e406d':'white'
   };
 
   return (
-    <div className="container"style={mode}>
+    <div className="container rounded"style={{color: myStyle.color,backgroundColor: myStyle.backgroundColor,paddingBottom: '12px',paddingTop: '12px'}}>
     <h1>About Us</h1>
       <div class="accordion" id="accordionExample">
         <div class="accordion-item">
@@ -31,7 +36,7 @@ export default function About() {
               data-bs-target="#collapseOne"
               aria-expanded="true"
               aria-controls="collapseOne"
-              style={mode}
+              style={myStyle}
             >
               Accordion Item #1
             </button>
@@ -41,7 +46,7 @@ export default function About() {
             class="accordion-collapse collapse show"
             data-bs-parent="#accordionExample"
           >
-            <div class="accordion-body" style={mode}>
+            <div class="accordion-body" style={myStyle}>
               <strong>This is the first item's accordion body.</strong> It is
               shown by default, until the collapse plugin adds the appropriate
               classes that we use to style each element. These classes control
@@ -62,7 +67,7 @@ export default function About() {
               data-bs-target="#collapseTwo"
               aria-expanded="false"
               aria-controls="collapseTwo"
-              style={mode}
+              style={myStyle}
             >
               Accordion Item #2
             </button>
@@ -72,7 +77,7 @@ export default function About() {
             class="accordion-collapse collapse"
             data-bs-parent="#accordionExample"
           >
-            <div class="accordion-body" style={mode}>
+            <div class="accordion-body" style={myStyle}>
               <strong>This is the second item's accordion body.</strong> It is
               hidden by default, until the collapse plugin adds the appropriate
               classes that we use to style each element. These classes control
@@ -93,7 +98,7 @@ export default function About() {
               data-bs-target="#collapseThree"
               aria-expanded="false"
               aria-controls="collapseThree"
-              style={mode}
+              style={myStyle}
             >
               Accordion Item #3
             </button>
@@ -103,7 +108,7 @@ export default function About() {
             class="accordion-collapse collapse"
             data-bs-parent="#accordionExample"
           >
-            <div class="accordion-body" style={mode}>
+            <div class="accordion-body" style={myStyle}>
               <strong>This is the third item's accordion body.</strong> It is
               hidden by default, until the collapse plugin adds the appropriate
               classes that we use to style each element. These classes control
@@ -116,7 +121,7 @@ export default function About() {
           </div>
         </div>
       </div>
-      <div><button className="btn btn-primary my-2" onClick={toggleMode}>{btnText}</button></div>
+      {/* <div><button className="btn btn-primary my-2" onClick={toggleMode}>{btnText}</button></div> */}
     </div>
   );
 }

@@ -5,7 +5,7 @@ import Alert from './Components/Alert';
 import About from './Components/About';
 import Navbar from './Components/Navbar';
 import TextForm from './Components/TextForm';
-import { BrowserRouter as Router, Route, Routes, Link } from 'react-router-dom'
+import { BrowserRouter as Router, Route, Routes} from 'react-router-dom'
 
 function App() {
   const[theme,setTheme] = useState("light")
@@ -52,7 +52,7 @@ function App() {
       <div className="container my-3">
       <Routes>
       <Route exact path="/" element={<TextForm heading="Enter your text here" theme={theme} showAlert={showAlert}/>}></Route>
-      <Route exact path="/about" element={<About/>}></Route>
+      <Route exact path="/about" element={<About theme={theme}/>}></Route>
       </Routes>
       </div>
       </Router>

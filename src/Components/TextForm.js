@@ -27,7 +27,7 @@ export default function TextForm(props) {
   };
 
   const GetActualLength = (sentence)=>{
-    let words = sentence.split(" ")
+    let words = sentence.split(/\s+/)
     let len = words.length
     words.forEach(element => {
         if(element.length===0){len=len-1}
@@ -49,16 +49,16 @@ export default function TextForm(props) {
             style={{backgroundColor:props.theme==='dark'?'#1e406d':'white',color:props.theme==='dark'?'white':'black'}}
           ></textarea>
         </div>
-        <button className="btn btn-outline-primary mx-1" onClick={convertUC}>
+        <button className="btn btn-outline-primary mx-1 my-1" onClick={convertUC}>
           Convert to Uppercase
         </button>
-        <button className="btn btn-outline-primary mx-1" onClick={convertLC}>
+        <button className="btn btn-outline-primary mx-1 my-1" onClick={convertLC}>
           Convert to Lowercase
         </button>
-        <button className="btn btn-outline-primary mx-1" onClick={removeSpace}>
+        <button className="btn btn-outline-primary mx-1 my-1" onClick={removeSpace}>
           Remove Spaces
         </button>
-        <button className="btn btn-outline-primary mx-1" onClick={clearText}>
+        <button className="btn btn-outline-primary mx-1 my-1" onClick={clearText}>
           Clear Text
         </button>
       </div>
